@@ -27,7 +27,7 @@ some_data* unprotected;
 
 void malicious_function(some_data& protected_data)
 {
-    unprotected=&protected_data;
+    unprotected=&protected_data; // 这里取出了“共享资源”的句柄，是出问题的关键
 }
 
 data_wrapper x;

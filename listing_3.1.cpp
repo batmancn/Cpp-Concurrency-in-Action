@@ -12,6 +12,8 @@ void add_to_list(int new_value)
 }
 bool list_contains(int value_to_find)
 {
+    // 使用std::lock_guard<std::mutex> guard(some_mutex);，借助RAII，不需要手动调用unlock
+    // 这个能将函数做成临界区
     std::lock_guard<std::mutex> guard(some_mutex);
     return std::find(some_list.begin(),some_list.end(),value_to_find)
         != some_list.end();

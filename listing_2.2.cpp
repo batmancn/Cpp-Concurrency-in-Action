@@ -34,10 +34,10 @@ void f()
     }
     catch(...)
     {
-        t.join();
+        t.join(); // 1
         throw;
     }
-    t.join();
+    t.join(); // 2，这两处join不能少
 }
 
 int main()
